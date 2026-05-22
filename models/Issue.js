@@ -15,6 +15,7 @@ const issueSchema = new mongoose.Schema({
     enum: ['pending', 'approved', 'rejected'], 
     default: 'pending' 
   },
+  supportCount: { type: Number, default: 0 },
 }, { timestamps: true });
 
 module.exports = mongoose.model('Issue', issueSchema);

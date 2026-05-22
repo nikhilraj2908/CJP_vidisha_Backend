@@ -6,5 +6,5 @@ const { submitIssue, getApprovedIssues, getIssueById } = require('../controllers
 router.post('/', upload.single('image'), submitIssue);
 router.get('/', getApprovedIssues);
 router.get('/:id', getIssueById);
-
+router.put('/:id/support', issueController.supportIssue);
 module.exports = router;

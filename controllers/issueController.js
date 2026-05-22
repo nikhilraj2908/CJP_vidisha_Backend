@@ -63,3 +63,11 @@ exports.getIssueById = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+exports.supportIssue = async (req, res) => {
+  const issue = await Issue.findById(req.params.id);
+  if (!issue) return res.status(404).json({ message: 'Issue not found' });
+  issue.supportCount = (issue.supportCount || 0) + 1;
+  await issue.save();
+  res.json({ supportCount: issue.supportCount });
+};
